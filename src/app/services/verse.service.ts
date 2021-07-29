@@ -24,7 +24,18 @@ export class VerseService {
   }
 
   async getVerseFromUrl(url: string): Promise<Verse> {
-    let verse: Verse = { code: 0, status: '', data: '' };
+    let verse: Verse = { 
+      code: 0, 
+      status: '', 
+      data: { 
+        number: 0, 
+        text: '', 
+        surah: { 
+          number: 0
+        } 
+      } 
+    };
+    
     await this.httpClient.get<Verse>(url).toPromise().then(data => verse = data);
 
     return verse;
