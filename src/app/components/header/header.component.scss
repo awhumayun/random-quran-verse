@@ -1,0 +1,62 @@
+header {
+    width: 100vw;
+    min-height: 10vh;
+    display: block;
+    background-color: var(--one);
+    margin: -8px;
+}
+
+.inner-header {
+    width: 75%;
+    height: 10vh;
+    display: block;
+    margin: 0 auto;
+}
+
+.logo-container {
+    min-height: 100%;
+    display: table;
+    float: left;
+
+    h1 {
+        color: black;
+        min-height: 100%;
+        display: table-cell;
+        vertical-align: middle;
+        font-size: 2rem;
+        font-weight: bold;
+
+        span {
+            font-weight: 200;
+        }
+    }
+}
+
+.navigation {
+    float: right;
+    height: 10vh;
+    margin: 0;
+
+    .choice {
+        height: 10vh;
+        display: table-cell;
+        vertical-align: middle;
+        color: black;
+        font-size: 1rem;
+        padding: 0 15px;
+
+        a {
+            padding: 10px;
+        }
+
+        a:hover {
+            outline: solid black;
+        }
+
+        li {
+            display: table-cell;
+            color: black;
+            font-size: 1rem;
+        }
+    }
+}
