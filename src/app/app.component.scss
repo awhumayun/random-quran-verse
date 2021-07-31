@@ -1,0 +1,18 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    background-color: var(--five);
+    min-height: 90vh;
+    margin: 8px -8px -8px -8px;
+}
+
+.text-container {
+    padding: 2.5% 10%;
+    text-align: center;
+    font-size: 2.5rem;
+}

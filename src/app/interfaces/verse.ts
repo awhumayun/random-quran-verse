@@ -2,7 +2,7 @@ export interface Verse {
     code: number,
     status: string,
     data: {
-        number: number
+        numberInSurah: number
         text: string,
         surah: {
             number: number,

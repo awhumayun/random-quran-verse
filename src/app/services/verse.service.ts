@@ -28,7 +28,7 @@ export class VerseService {
       code: 0, 
       status: '', 
       data: { 
-        number: 0, 
+        numberInSurah: 0, 
         text: '', 
         surah: { 
           number: 0
