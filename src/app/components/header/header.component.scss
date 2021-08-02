@@ -2,8 +2,8 @@ header {
     width: 100vw;
     min-height: 10vh;
     display: block;
-    background-color: #3A9E39;
     margin: -8px;
+    background-color: var(--header);
 }
 
 .inner-header {
@@ -19,7 +19,6 @@ header {
     float: left;
 
     h1 {
-        color: black;
         min-height: 100%;
         display: table-cell;
         vertical-align: middle;
@@ -41,7 +40,6 @@ header {
         height: 10vh;
         display: table-cell;
         vertical-align: middle;
-        color: black;
         font-size: 1rem;
         padding: 0 15px;
 
@@ -50,12 +48,11 @@ header {
         }
 
         a:hover {
-            outline: solid black;
+            outline: solid;
         }
 
         li {
             display: table-cell;
-            color: black;
             font-size: 1rem;
         }
     }

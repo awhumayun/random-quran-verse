@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { VerseService } from './services/verse.service';
 import { HeaderComponent } from './components/header/header.component';
 import { ButtonComponent } from './components/button/button.component';
+import { DarkModeToggleComponent } from './components/dark-mode-toggle/dark-mode-toggle.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    ButtonComponent
+    ButtonComponent,
+    DarkModeToggleComponent
   ],
   imports: [
     BrowserModule,

@@ -1,8 +1,28 @@
-:root {
-    --one: #83502e;
-    --two: #96613d;
-    --three: #bd7e4a;
-    --four: #ce8b54;
-    --five: #d2a56d;
+body.dark-mode {
+    background-color: #1f1f1f;
+    color: #dfe6e9;
+    --header: #303030;
+
+    a {
+        color: #dfe6e9;
+    }
+
+    button {
+        background-color: #333333;
+        color: #dfe6e9;
+    }
 }
-  
+
+body.light-mode {
+    background-color: #dfe6e9;
+    color: #2d3436;
+    --header: #f0f0f0;
+
+    a {
+        color: #2d3436;
+    }
+}
+
+body:not(.dark-mode-preloading) {
+    transition: all 0.3s linear;
+}
