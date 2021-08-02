@@ -56,3 +56,18 @@ input:checked + .slider:before {
 .slider.round:before {
     border-radius: 50%;
 }
+
+i {
+    font-family: fontAwesome;
+    padding: 10px;
+    font-size: 1.5rem;
+    font-style: initial;
+}
+
+.fa-sun {
+    padding-left: 0;
+}
+
+.fa-moon {
+    padding-right: 0;
+}

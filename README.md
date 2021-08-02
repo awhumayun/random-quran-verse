@@ -11,6 +11,8 @@ It is created by using:
 * JavaScript (ES6)
 * Typescript
 * [Angular](https://github.com/angular/angular)
+* [Angular-Dark-Mode](https://github.com/talohana/angular-dark-mode)
+* [Font Awesome](https://fontawesome.com/)
 
 ## Installation
 
