@@ -3,7 +3,6 @@ header {
     min-height: 10vh;
     display: block;
     margin: -8px;
-    background-color: var(--header);
 }
 
 .inner-header {
@@ -49,6 +48,8 @@ header {
 
         a:hover {
             outline: solid;
+            opacity: 0.75;
+            transition: all 0.05s;
         }
 
         li {
