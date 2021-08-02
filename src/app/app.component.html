@@ -1,6 +1,6 @@
 <app-header></app-header>
 <body>
-    <div class="text-container">
+    <div class="text-container" [@fade]="isNew ? 'out' : 'in'">
         <p>{{verse.data.text}}</p>
         <p class="translation">{{translationText}}</p>
     </div>
