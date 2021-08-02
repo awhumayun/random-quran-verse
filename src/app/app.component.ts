@@ -21,7 +21,6 @@ export class AppComponent {
 
   async ngOnInit() { 
     await this.getRandomVerse();
-    this.setTranslationText();
   }
 
   async getRandomVerse(): Promise<void> {
@@ -29,9 +28,6 @@ export class AppComponent {
 
     this.verse = await this.verseService.getVerse(random);
     this.verseTranslation = await this.verseService.getVerseTranslation(random, this.translation);
-  }
-
-  setTranslationText() {
     this.translationText = `(${this.verseTranslation.data.surah.number}:${this.verseTranslation.data.numberInSurah}) ${this.verseTranslation.data.text}`;
   }
 }

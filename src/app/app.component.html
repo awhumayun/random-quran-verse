@@ -2,6 +2,9 @@
 <body>
     <div class="text-container">
         <p>{{verse.data.text}}</p>
-        <p>{{translationText}}</p>
+        <p class="translation">{{translationText}}</p>
+    </div>
+    <div class="button-container">
+        <app-button (click)="getRandomVerse()"></app-button>
     </div>
 </body>

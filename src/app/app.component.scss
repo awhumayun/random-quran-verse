@@ -6,7 +6,6 @@
 }
 
 body {
-    background-color: var(--five);
     min-height: 90vh;
     margin: 8px -8px -8px -8px;
 }
@@ -15,4 +14,16 @@ body {
     padding: 2.5% 10%;
     text-align: center;
     font-size: 2.5rem;
+    min-height: 65vh;
+
+    .translation {
+        margin-top: 2.5%;
+    }
+}
+
+.button-container {
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    margin-bottom: 2.5%;
 }
