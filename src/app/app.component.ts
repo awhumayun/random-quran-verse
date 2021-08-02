@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
+import { animate, transition, trigger, state, style } from '@angular/animations';
 import { Verse } from './interfaces/verse';
 import { TRANSLATIONS } from '../app/classes/translation-data';
 import { VerseService } from './services/verse.service';
-import { animate, transition, trigger, state, style } from '@angular/animations';
 
 @Component({
   selector: 'app-root',
@@ -23,7 +23,7 @@ import { animate, transition, trigger, state, style } from '@angular/animations'
   ]
 })
 export class AppComponent {
-  numOfVerses = 6236;
+  numOfVerses: number = 6236;
   
   verse!: Verse;
   verseTranslation!: Verse;
@@ -35,7 +35,7 @@ export class AppComponent {
 
   constructor(private verseService: VerseService) { }
 
-  async ngOnInit() { 
+  async ngOnInit(): Promise<void> { 
     await this.getRandomVerse();
   }
 
@@ -46,6 +46,7 @@ export class AppComponent {
     this.verse = await this.verseService.getVerse(random);
     this.verseTranslation = await this.verseService.getVerseTranslation(random, this.translation);
     this.translationText = `(${this.verseTranslation.data.surah.number}:${this.verseTranslation.data.numberInSurah}) ${this.verseTranslation.data.text}`;
+
     this.isNew = false;
   }
 }
