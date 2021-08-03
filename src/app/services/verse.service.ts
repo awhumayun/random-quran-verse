@@ -9,7 +9,7 @@ import { Verse } from '../interfaces/verse';
 })
 export class VerseService {
 
-  baseUrl: string = 'http://api.alquran.cloud/v1/ayah';
+  baseUrl: string = 'https://api.alquran.cloud/v1/ayah';
 
   constructor(private httpClient: HttpClient) { }
 
