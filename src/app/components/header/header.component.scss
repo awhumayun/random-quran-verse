@@ -36,13 +36,6 @@ header {
     height: 10vh;
     margin: 0;
 
-    .choice {
-        height: 10vh;
-        display: table-cell;
-        vertical-align: middle;
-        font-size: 1rem;
-        padding: 0 15px;
-
         a {
             padding: 10px;
         }
@@ -57,5 +50,18 @@ header {
             display: table-cell;
             font-size: 1rem;
         }
+}
+
+.choice {
+    height: 10vh;
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 1rem;
+    padding: 0 15px;
+}
+
+@media only screen and (max-width: 600px) {
+    .choice {
+        padding: 0;
     }
 }
