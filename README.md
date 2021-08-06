@@ -14,6 +14,10 @@ It is created by using:
 * [Angular-Dark-Mode](https://github.com/talohana/angular-dark-mode)
 * [Font Awesome](https://fontawesome.com/)
 
+## Usage 
+
+The website can be accessed at: https://awhumayun.github.io/random-quran-verse/
+
 ## Installation
 
 Modification of the code requires Angular which can be installed by the following command:
