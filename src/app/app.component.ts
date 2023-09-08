@@ -20,13 +20,13 @@ import { VerseService } from "./services/verse.service";
         "out",
         style({
           opacity: 0,
-        }),
+        })
       ),
       state(
         "in",
         style({
           opacity: 1,
-        }),
+        })
       ),
       transition("out => in", [animate("2s")]),
     ]),
@@ -51,12 +51,13 @@ export class AppComponent {
 
   async getRandomVerse(): Promise<void> {
     this.isNew = true;
+
     const random = Math.floor(Math.random() * this.numOfVerses) + 1;
 
     this.verse = await this.verseService.getVerse(random);
     this.verseTranslation = await this.verseService.getVerseTranslation(
       random,
-      this.translation,
+      this.translation
     );
     this.translationText = `(${this.verseTranslation.data.surah.number}:${this.verseTranslation.data.numberInSurah}) ${this.verseTranslation.data.text}`;
 

@@ -35,3 +35,29 @@ body.light-mode {
 body:not(.dark-mode-preloading) {
   transition: all 0.3s linear;
 }
+
+button {
+  padding: 15px 25px !important;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+button:hover {
+  opacity: 0.75;
+}
+
+button:active:enabled {
+  filter: brightness(0.7);
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+  opacity: 1;
+}
+
+button:disabled {
+  opacity: 0.25;
+}
