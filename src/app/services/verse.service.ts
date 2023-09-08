@@ -1,7 +1,6 @@
 import { Injectable } from "@angular/core";
-import { Translation } from "../classes/translation";
 import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
+import { Translation } from "../interfaces/translation";
 import { Verse } from "../interfaces/verse";
 
 @Injectable({
@@ -19,7 +18,7 @@ export class VerseService {
 
   async getVerseTranslation(
     number: number,
-    translation: Translation,
+    translation: Translation
   ): Promise<Verse> {
     const url: string = `${this.baseUrl}/${number}/${translation.id}`;
     return this.getVerseFromUrl(url);

@@ -7,8 +7,9 @@ import {
   style,
 } from "@angular/animations";
 import { Verse } from "./interfaces/verse";
-import { TRANSLATIONS } from "../app/classes/translation-data";
 import { VerseService } from "./services/verse.service";
+import { DEFAULT_TRANSLATION } from "./constants/translations";
+import { VERSES } from "./constants/verses";
 
 @Component({
   selector: "app-root",
@@ -33,13 +34,8 @@ import { VerseService } from "./services/verse.service";
   ],
 })
 export class AppComponent {
-  numOfVerses: number = 6236;
-
-  verse!: Verse;
-  verseTranslation!: Verse;
-  translationText!: string;
-
-  translation = TRANSLATIONS[6];
+  verse?: Verse;
+  translationText?: string;
 
   isNew: boolean = true;
 
@@ -52,14 +48,22 @@ export class AppComponent {
   async getRandomVerse(): Promise<void> {
     this.isNew = true;
 
-    const random = Math.floor(Math.random() * this.numOfVerses) + 1;
-
-    this.verse = await this.verseService.getVerse(random);
-    this.verseTranslation = await this.verseService.getVerseTranslation(
-      random,
-      this.translation
-    );
-    this.translationText = `(${this.verseTranslation.data.surah.number}:${this.verseTranslation.data.numberInSurah}) ${this.verseTranslation.data.text}`;
+    const random = Math.floor(Math.random() * VERSES) + 1;
+    const [
+      verse,
+      {
+        data: {
+          numberInSurah,
+          text,
+          surah: { number },
+        },
+      },
+    ] = await Promise.all([
+      this.verseService.getVerse(random),
+      this.verseService.getVerseTranslation(random, DEFAULT_TRANSLATION),
+    ]);
+    this.verse = verse;
+    this.translationText = `(${number}:${numberInSurah}) ${text}`;
 
     this.isNew = false;
   }
