@@ -1,31 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  selector: "app-header",
+  templateUrl: "./header.component.html",
+  styleUrls: ["./header.component.scss"],
 })
 export class HeaderComponent implements OnInit {
-
   logo = {
-    bold: 'Random',
-    text: ' Quran Verse'
+    bold: "Random",
+    text: " Quran Verse",
   };
 
   isOnMobile: boolean = false;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
     this.setMobile();
   }
 
   setMobile(): void {
-    if(screen.width <= 600) {
+    if (screen.width <= 600) {
       this.isOnMobile = true;
-      
-      this.logo.bold = 'R';
-      this.logo.text = 'QV'
+
+      this.logo.bold = "R";
+      this.logo.text = "QV";
     }
   }
 }

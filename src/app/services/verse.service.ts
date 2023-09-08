@@ -1,42 +1,47 @@
-import { Injectable } from '@angular/core';
-import { Translation } from '../classes/translation';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { Verse } from '../interfaces/verse';
+import { Injectable } from "@angular/core";
+import { Translation } from "../classes/translation";
+import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
+import { Verse } from "../interfaces/verse";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class VerseService {
+  baseUrl: string = "https://api.alquran.cloud/v1/ayah";
 
-  baseUrl: string = 'https://api.alquran.cloud/v1/ayah';
-
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
 
   async getVerse(number: number): Promise<Verse> {
     const url: string = `${this.baseUrl}/${number}`;
     return this.getVerseFromUrl(url);
   }
 
-  async getVerseTranslation(number: number, translation: Translation): Promise<Verse> {
+  async getVerseTranslation(
+    number: number,
+    translation: Translation,
+  ): Promise<Verse> {
     const url: string = `${this.baseUrl}/${number}/${translation.id}`;
     return this.getVerseFromUrl(url);
   }
 
   async getVerseFromUrl(url: string): Promise<Verse> {
-    let verse: Verse = { 
-      code: 0, 
-      status: '', 
-      data: { 
-        numberInSurah: 0, 
-        text: '', 
-        surah: { 
-          number: 0
-        } 
-      } 
+    let verse: Verse = {
+      code: 0,
+      status: "",
+      data: {
+        numberInSurah: 0,
+        text: "",
+        surah: {
+          number: 0,
+        },
+      },
     };
-    
-    await this.httpClient.get<Verse>(url).toPromise().then(data => verse = data);
+
+    await this.httpClient
+      .get<Verse>(url)
+      .toPromise()
+      .then((data) => (verse = data));
 
     return verse;
   }

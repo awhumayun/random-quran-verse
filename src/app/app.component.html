@@ -1,10 +1,10 @@
 <app-header></app-header>
 <body>
-    <div class="text-container" [@fade]="isNew ? 'out' : 'in'">
-        <p>{{verse.data.text}}</p>
-        <p class="translation">{{translationText}}</p>
-    </div>
-    <div class="button-container">
-        <app-button (click)="getRandomVerse()"></app-button>
-    </div>
+  <div class="text-container" [@fade]="isNew ? 'out' : 'in'">
+    <p>{{ verse.data.text }}</p>
+    <p class="translation">{{ translationText }}</p>
+  </div>
+  <div class="button-container">
+    <app-button (click)="getRandomVerse()"></app-button>
+  </div>
 </body>

@@ -1,67 +1,67 @@
 header {
-    width: 100vw;
-    min-height: 10vh;
-    display: block;
-    margin: -8px;
-    font-family: 'Rubik', sans-serif;
+  width: 100vw;
+  min-height: 10vh;
+  display: block;
+  margin: -8px;
+  font-family: "Rubik", sans-serif;
 }
 
 .inner-header {
-    width: 75%;
-    height: 10vh;
-    display: block;
-    margin: 0 auto;
+  width: 75%;
+  height: 10vh;
+  display: block;
+  margin: 0 auto;
 }
 
 .logo-container {
+  min-height: 100%;
+  display: table;
+  float: left;
+
+  h1 {
     min-height: 100%;
-    display: table;
-    float: left;
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 2rem;
+    font-weight: bold;
 
-    h1 {
-        min-height: 100%;
-        display: table-cell;
-        vertical-align: middle;
-        font-size: 2rem;
-        font-weight: bold;
-
-        span {
-            font-weight: 200;
-        }
+    span {
+      font-weight: 200;
     }
+  }
 }
 
 .navigation {
-    float: right;
-    height: 10vh;
-    margin: 0;
+  float: right;
+  height: 10vh;
+  margin: 0;
 
-        a {
-            padding: 10px;
-        }
+  a {
+    padding: 10px;
+  }
 
-        a:hover {
-            outline: solid;
-            opacity: 0.75;
-            transition: all 0.05s;
-        }
+  a:hover {
+    outline: solid;
+    opacity: 0.75;
+    transition: all 0.05s;
+  }
 
-        li {
-            display: table-cell;
-            font-size: 1rem;
-        }
+  li {
+    display: table-cell;
+    font-size: 1rem;
+  }
 }
 
 .choice {
-    height: 10vh;
-    display: table-cell;
-    vertical-align: middle;
-    font-size: 1rem;
-    padding: 0 15px;
+  height: 10vh;
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 1rem;
+  padding: 0 15px;
 }
 
 @media only screen and (max-width: 600px) {
-    .choice {
-        padding: 0;
-    }
+  .choice {
+    padding: 0;
+  }
 }
