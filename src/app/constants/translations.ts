@@ -1,4 +1,4 @@
-import { Translation } from "./translation";
+import { Translation } from "../classes/translation";
 
 export const TRANSLATIONS: Translation[] = [
   {
@@ -46,3 +46,5 @@ export const TRANSLATIONS: Translation[] = [
     name: "Yusuf Ali",
   },
 ];
+
+export const DEFAULT_TRANSLATION = TRANSLATIONS[6];
