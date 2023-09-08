@@ -1,16 +1,15 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { DarkModeToggleComponent } from './dark-mode-toggle.component';
+import { DarkModeToggleComponent } from "./dark-mode-toggle.component";
 
-describe('DarkModeToggleComponent', () => {
+describe("DarkModeToggleComponent", () => {
   let component: DarkModeToggleComponent;
   let fixture: ComponentFixture<DarkModeToggleComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DarkModeToggleComponent ]
-    })
-    .compileComponents();
+      declarations: [DarkModeToggleComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -19,7 +18,7 @@ describe('DarkModeToggleComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

@@ -1,13 +1,15 @@
 <nav>
-    <div class="theme-switch-wrapper">
-      <i class="fa-solid fa-sun"></i>
-      <label class="theme-switch" for="checkbox">
-      <input type="checkbox" id="checkbox"
+  <div class="theme-switch-wrapper">
+    <i class="fa-solid fa-sun"></i>
+    <label class="theme-switch" for="checkbox">
+      <input
+        type="checkbox"
+        id="checkbox"
         [checked]="darkMode$ | async"
-        (change)="onToggle()"/>
-      <div class="slider round">
-      </div>
-      </label>
-      <i class="fa-solid fa-moon"></i>
-    </div>
-</nav>  
+        (change)="onToggle()"
+      />
+      <div class="slider round"></div>
+    </label>
+    <i class="fa-solid fa-moon"></i>
+  </div>
+</nav>
