@@ -1,9 +1,8 @@
 <header>
   <div class="inner-header">
     <div class="logo-container">
-      <h1>
-        {{ logo.bold }}<span>{{ logo.text }}</span>
-      </h1>
+      <h1 class="lg-view">Random <span>Quran Verse</span></h1>
+      <h1 class="sm-view">R<span>QV</span></h1>
     </div>
     <ul class="navigation">
       <div class="choice">
@@ -19,7 +18,7 @@
       <div class="choice">
         <a href="https://quran.com/" target="blank"><li>Quran</li></a>
       </div>
-      <div class="choice" *ngIf="!isOnMobile">
+      <div class="choice lg-view">
         <app-dark-mode-toggle></app-dark-mode-toggle>
       </div>
     </ul>
