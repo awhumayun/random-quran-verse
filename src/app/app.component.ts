@@ -8,8 +8,7 @@ import {
 } from "@angular/animations";
 import { Verse } from "./interfaces/verse";
 import { VerseService } from "./services/verse.service";
-import { DEFAULT_TRANSLATION } from "./constants/data";
-import { TOTAL_VERSES } from "./constants/data";
+import { DEFAULT_TRANSLATION, TOTAL_VERSES } from "./constants/data";
 
 @Component({
   selector: "app-root",
@@ -50,28 +49,29 @@ export class AppComponent implements OnInit {
     const random = Math.floor(Math.random() * TOTAL_VERSES) + 1;
 
     this.verseService.getVerse(random).subscribe(
-      (verseData) => {
+      (verseData: Verse) => {
         this.verse = verseData;
         this.verseService
           .getVerseTranslation(random, DEFAULT_TRANSLATION)
           .subscribe(
-            ({
-              data: {
-                numberInSurah,
-                text,
-                surah: { number },
-              },
-            }) => {
+            (v: Verse) => {
+              const {
+                data: {
+                  numberInSurah,
+                  text,
+                  surah: { number },
+                },
+              } = v;
               this.translationText = `(${number}:${numberInSurah}) ${text}`;
               this.isNew = false;
             },
-            (error) => {
+            (error: Error) => {
               console.error("Error fetching translation", error);
               this.isNew = false;
             }
           );
       },
-      (error) => {
+      (error: Error) => {
         console.error("Error fetching verse", error);
         this.isNew = false;
       }
