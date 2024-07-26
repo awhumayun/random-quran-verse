@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import {
   animate,
   transition,
@@ -8,8 +8,8 @@ import {
 } from "@angular/animations";
 import { Verse } from "./interfaces/verse";
 import { VerseService } from "./services/verse.service";
-import { DEFAULT_TRANSLATION } from "./constants/translations";
-import { VERSES } from "./constants/verses";
+import { DEFAULT_TRANSLATION } from "./constants/data";
+import { TOTAL_VERSES } from "./constants/data";
 
 @Component({
   selector: "app-root",
@@ -33,38 +33,48 @@ import { VERSES } from "./constants/verses";
     ]),
   ],
 })
-export class AppComponent {
-  verse?: Verse;
-  translationText?: string;
-
+export class AppComponent implements OnInit {
+  verse?: Verse = undefined;
+  translationText: string = "";
   isNew: boolean = true;
 
   constructor(private verseService: VerseService) {}
 
-  async ngOnInit(): Promise<void> {
-    await this.getRandomVerse();
+  ngOnInit(): void {
+    this.getRandomVerse();
   }
 
-  async getRandomVerse(): Promise<void> {
+  getRandomVerse(): void {
     this.isNew = true;
 
-    const random = Math.floor(Math.random() * VERSES) + 1;
-    const [
-      verse,
-      {
-        data: {
-          numberInSurah,
-          text,
-          surah: { number },
-        },
-      },
-    ] = await Promise.all([
-      this.verseService.getVerse(random),
-      this.verseService.getVerseTranslation(random, DEFAULT_TRANSLATION),
-    ]);
-    this.verse = verse;
-    this.translationText = `(${number}:${numberInSurah}) ${text}`;
+    const random = Math.floor(Math.random() * TOTAL_VERSES) + 1;
 
-    this.isNew = false;
+    this.verseService.getVerse(random).subscribe(
+      (verseData) => {
+        this.verse = verseData;
+        this.verseService
+          .getVerseTranslation(random, DEFAULT_TRANSLATION)
+          .subscribe(
+            ({
+              data: {
+                numberInSurah,
+                text,
+                surah: { number },
+              },
+            }) => {
+              this.translationText = `(${number}:${numberInSurah}) ${text}`;
+              this.isNew = false;
+            },
+            (error) => {
+              console.error("Error fetching translation", error);
+              this.isNew = false;
+            }
+          );
+      },
+      (error) => {
+        console.error("Error fetching verse", error);
+        this.isNew = false;
+      }
+    );
   }
 }

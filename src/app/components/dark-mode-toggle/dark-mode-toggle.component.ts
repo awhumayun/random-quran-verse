@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 import { DarkModeService } from "angular-dark-mode";
 import { Observable } from "rxjs";
 
@@ -7,12 +7,12 @@ import { Observable } from "rxjs";
   templateUrl: "./dark-mode-toggle.component.html",
   styleUrls: ["./dark-mode-toggle.component.scss"],
 })
-export class DarkModeToggleComponent implements OnInit {
-  darkMode$: Observable<boolean> = this.darkModeService.darkMode$;
+export class DarkModeToggleComponent {
+  darkMode$: Observable<boolean>;
 
-  constructor(private darkModeService: DarkModeService) {}
-
-  ngOnInit(): void {}
+  constructor(private darkModeService: DarkModeService) {
+    this.darkMode$ = this.darkModeService.darkMode$;
+  }
 
   onToggle(): void {
     this.darkModeService.toggle();

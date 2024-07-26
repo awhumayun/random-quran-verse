@@ -1,47 +1,38 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
+import { Observable, of } from "rxjs";
+import { catchError } from "rxjs/operators";
 import { Translation } from "../interfaces/translation";
 import { Verse } from "../interfaces/verse";
+import { BASE_URL } from "../constants/api";
 
 @Injectable({
   providedIn: "root",
 })
 export class VerseService {
-  baseUrl: string = "https://api.alquran.cloud/v1/ayah";
-
   constructor(private httpClient: HttpClient) {}
 
-  async getVerse(number: number): Promise<Verse> {
-    const url: string = `${this.baseUrl}/${number}`;
-    return this.getVerseFromUrl(url);
+  getVerse(number: number): Observable<Verse> {
+    const url: string = `${BASE_URL}/${number}`;
+    return this.httpClient
+      .get<Verse>(url)
+      .pipe(catchError(this.handleError<Verse>("getVerse")));
   }
 
-  async getVerseTranslation(
+  getVerseTranslation(
     number: number,
     translation: Translation
-  ): Promise<Verse> {
-    const url: string = `${this.baseUrl}/${number}/${translation.id}`;
-    return this.getVerseFromUrl(url);
+  ): Observable<Verse> {
+    const url: string = `${BASE_URL}/${number}/${translation.id}`;
+    return this.httpClient
+      .get<Verse>(url)
+      .pipe(catchError(this.handleError<Verse>("getVerseTranslation")));
   }
 
-  async getVerseFromUrl(url: string): Promise<Verse> {
-    let verse: Verse = {
-      code: 0,
-      status: "",
-      data: {
-        numberInSurah: 0,
-        text: "",
-        surah: {
-          number: 0,
-        },
-      },
+  private handleError<T>(operation = "operation", result?: T) {
+    return (error: any): Observable<T> => {
+      console.error(`${operation} failed: ${error.message}`);
+      return of(result as T);
     };
-
-    await this.httpClient
-      .get<Verse>(url)
-      .toPromise()
-      .then((data) => (verse = data));
-
-    return verse;
   }
 }

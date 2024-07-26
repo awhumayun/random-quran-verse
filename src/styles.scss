@@ -1,63 +1,75 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap");
 
+:root {
+  --color-dark-bg: #1f1f1f;
+  --color-dark-text: #dfe6e9;
+  --color-dark-header: #303030;
+  --color-dark-button-bg: #333333;
+
+  --color-light-bg: #dfe6e9;
+  --color-light-text: #2d3436;
+  --color-light-header: #f0f0f0;
+
+  --button-padding: 15px 25px;
+  --button-font-size: 24px;
+  --button-border-radius: 15px;
+  --button-shadow: 0 9px #999;
+  --button-shadow-active: 0 5px #666;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+li,
+a {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  font-family: inherit;
+}
+
 body.dark-mode {
-  background-color: #1f1f1f;
-  color: #dfe6e9;
+  background-color: var(--color-dark-bg);
+  color: var(--color-dark-text);
+  transition: background-color 0.3s, color 0.3s;
 
   header {
-    background-color: #303030;
+    background-color: var(--color-dark-header);
   }
 
   a {
-    color: #dfe6e9;
+    color: var(--color-dark-text);
   }
 
   button {
-    background-color: #333333;
-    color: #dfe6e9;
+    background-color: var(--color-dark-button-bg);
+    color: var(--color-dark-text);
   }
 }
 
 body.light-mode {
-  background-color: #dfe6e9;
-  color: #2d3436;
+  background-color: var(--color-light-bg);
+  color: var(--color-light-text);
+  transition: background-color 0.3s, color 0.3s;
 
   header {
-    background-color: #f0f0f0;
+    background-color: var(--color-light-header);
   }
 
   a {
-    color: #2d3436;
+    color: var(--color-light-text);
   }
 }
 
+/* Prevent flicker during mode switch */
 body:not(.dark-mode-preloading) {
   transition: all 0.3s linear;
-}
-
-button {
-  padding: 15px 25px !important;
-  font-size: 24px;
-  cursor: pointer;
-  text-align: center;
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 9px #999;
-  font-family: "Source Sans Pro", sans-serif;
-}
-
-button:hover {
-  opacity: 0.75;
-}
-
-button:active:enabled {
-  filter: brightness(0.7);
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
-  opacity: 1;
-}
-
-button:disabled {
-  opacity: 0.25;
 }

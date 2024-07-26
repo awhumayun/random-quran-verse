@@ -1,12 +1,12 @@
 <app-header></app-header>
-<body>
-  <div class="text-container" [@fade]="isNew ? 'out' : 'in'">
+<main>
+  <section class="text-container" [@fade]="isNew ? 'out' : 'in'">
     <p *ngIf="verse">{{ verse.data.text }}</p>
     <p *ngIf="translationText" class="translation">{{ translationText }}</p>
-  </div>
-  <div class="button-container">
+  </section>
+  <section class="button-container">
     <button (click)="getRandomVerse()" [disabled]="isNew">
       Get Another Random Verse
     </button>
-  </div>
-</body>
+  </section>
+</main>

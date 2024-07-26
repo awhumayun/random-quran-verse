@@ -1,15 +1,16 @@
 <nav>
   <div class="theme-switch-wrapper">
-    <i class="fa-solid fa-sun"></i>
+    <i class="fa-solid fa-sun" aria-hidden="true"></i>
     <label class="theme-switch" for="checkbox">
       <input
         type="checkbox"
         id="checkbox"
         [checked]="darkMode$ | async"
         (change)="onToggle()"
+        aria-label="Toggle theme"
       />
       <div class="slider round"></div>
     </label>
-    <i class="fa-solid fa-moon"></i>
+    <i class="fa-solid fa-moon" aria-hidden="true"></i>
   </div>
 </nav>

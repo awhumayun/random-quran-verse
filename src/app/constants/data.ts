@@ -48,3 +48,5 @@ export const TRANSLATIONS: Translation[] = [
 ];
 
 export const DEFAULT_TRANSLATION = TRANSLATIONS[6];
+
+export const TOTAL_VERSES: number = 6236;
