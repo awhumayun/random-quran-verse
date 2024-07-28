@@ -5,8 +5,9 @@
     <p *ngIf="translationText" class="translation">{{ translationText }}</p>
   </section>
   <section class="button-container">
-    <button (click)="getRandomVerse()" [disabled]="isNew">
-      Get Another Random Verse
-    </button>
+    <app-random-verse-button
+      [disabled]="isNew"
+      (buttonClicked)="getRandomVerse()"
+    ></app-random-verse-button>
   </section>
 </main>

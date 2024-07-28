@@ -1,0 +1,37 @@
+button {
+  padding: var(--button-padding);
+  font-size: var(--button-font-size);
+  cursor: pointer;
+  text-align: center;
+  border: none;
+  border-radius: var(--button-border-radius);
+  box-shadow: var(--button-shadow);
+  font-family: "Source Sans Pro", sans-serif;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+@media (hover: hover) {
+  button:hover {
+    opacity: 0.75;
+  }
+}
+
+button:active:enabled {
+  filter: brightness(0.7);
+  box-shadow: var(--button-shadow-active);
+  transform: translateY(4px);
+  opacity: 1;
+}
+
+button:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
+@media only screen and (max-width: 600px) {
+  button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+  }
+}
