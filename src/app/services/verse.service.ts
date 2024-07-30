@@ -4,7 +4,7 @@ import { Observable, of } from "rxjs";
 import { catchError } from "rxjs/operators";
 import { Translation } from "../interfaces/translation";
 import { Verse } from "../interfaces/verse";
-import { BASE_URL } from "../constants/api";
+import { BASE_API_URL } from "../constants/api";
 
 @Injectable({
   providedIn: "root",
@@ -13,7 +13,7 @@ export class VerseService {
   constructor(private httpClient: HttpClient) {}
 
   getVerse(number: number): Observable<Verse> {
-    const url: string = `${BASE_URL}/${number}`;
+    const url: string = `${BASE_API_URL}/${number}`;
     return this.httpClient
       .get<Verse>(url)
       .pipe(catchError(this.handleError<Verse>("getVerse")));
@@ -23,7 +23,7 @@ export class VerseService {
     number: number,
     translation: Translation
   ): Observable<Verse> {
-    const url: string = `${BASE_URL}/${number}/${translation.id}`;
+    const url: string = `${BASE_API_URL}/${number}/${translation.id}`;
     return this.httpClient
       .get<Verse>(url)
       .pipe(catchError(this.handleError<Verse>("getVerseTranslation")));

@@ -8,8 +8,9 @@ import { AppComponent } from "./app.component";
 import { VerseService } from "./services/verse.service";
 import { HeaderComponent } from "./components/header/header.component";
 import { DarkModeToggleComponent } from "./components/dark-mode-toggle/dark-mode-toggle.component";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { RandomVerseButtonComponent } from "./components/random-verse-button/random-verse-button.component";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { RandomVerseButtonComponent } from "./components/random-verse-button/ran
     RandomVerseButtonComponent,
   ],
   bootstrap: [AppComponent],
-  imports: [BrowserModule, BrowserAnimationsModule],
+  imports: [BrowserModule, BrowserAnimationsModule, FontAwesomeModule],
   providers: [VerseService, provideHttpClient(withInterceptorsFromDi())],
 })
 export class AppModule {}

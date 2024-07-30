@@ -18,6 +18,8 @@
     "@angular/platform-browser": "^18.1.2",
     "@angular/platform-browser-dynamic": "^18.1.2",
     "@angular/router": "^18.1.2",
+    "@fortawesome/angular-fontawesome": "^0.15.0",
+    "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "angular-dark-mode": "^3.0.0",
     "jasmine": "^3.8.0",
     "rxjs": "~6.6.0",

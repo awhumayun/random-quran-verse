@@ -1,8 +1,20 @@
 <app-header></app-header>
 <main>
   <section class="text-container" [@fade]="isNew ? 'out' : 'in'">
-    <p *ngIf="verse">{{ verse.data.text }}</p>
-    <p *ngIf="translationText" class="translation">{{ translationText }}</p>
+    <p *ngIf="verseText">{{ verseText }}</p>
+    <div class="translation-wrapper" *ngIf="translationText">
+      <p class="translation">
+        {{ translationText }}
+      </p>
+      <a
+        [attr.href]="verseLink"
+        target="_blank"
+        class="external-link"
+        aria-label="External link"
+      >
+        <fa-icon [icon]="faArrowUpRightFromSquare"></fa-icon>
+      </a>
+    </div>
   </section>
   <section class="button-container">
     <app-random-verse-button

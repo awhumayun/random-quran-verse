@@ -73,3 +73,15 @@ body.light-mode {
 body:not(.dark-mode-preloading) {
   transition: all 0.3s linear;
 }
+
+a {
+  padding: 10px;
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  outline: solid;
+  opacity: 0.75;
+  transition: opacity 0.3s;
+}

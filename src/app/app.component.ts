@@ -8,7 +8,12 @@ import {
 } from "@angular/animations";
 import { Verse } from "./interfaces/verse";
 import { VerseService } from "./services/verse.service";
-import { DEFAULT_TRANSLATION, TOTAL_VERSES } from "./constants/data";
+import {
+  DEFAULT_TRANSLATION,
+  TOTAL_VERSES,
+  BASE_QURAN_URL,
+} from "./constants/data";
+import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: "app-root",
@@ -33,9 +38,12 @@ import { DEFAULT_TRANSLATION, TOTAL_VERSES } from "./constants/data";
   ],
 })
 export class AppComponent implements OnInit {
-  verse?: Verse = undefined;
+  verseText: string = "";
+  verseLink: string = "";
   translationText: string = "";
   isNew: boolean = true;
+
+  faArrowUpRightFromSquare = faArrowUpRightFromSquare;
 
   constructor(private verseService: VerseService) {}
 
@@ -47,22 +55,22 @@ export class AppComponent implements OnInit {
     this.isNew = true;
 
     const random = Math.floor(Math.random() * TOTAL_VERSES) + 1;
-
     this.verseService.getVerse(random).subscribe(
-      (verseData: Verse) => {
-        this.verse = verseData;
+      (verse: Verse) => {
+        this.verseText = verse.data.text;
         this.verseService
           .getVerseTranslation(random, DEFAULT_TRANSLATION)
           .subscribe(
-            (v: Verse) => {
+            (verseTranslation: Verse) => {
               const {
                 data: {
                   numberInSurah,
                   text,
                   surah: { number },
                 },
-              } = v;
+              } = verseTranslation;
               this.translationText = `(${number}:${numberInSurah}) ${text}`;
+              this.verseLink = `${BASE_QURAN_URL}/${number}?startingVerse=${numberInSurah}&translations=${DEFAULT_TRANSLATION.number}`;
               this.isNew = false;
             },
             (error: Error) => {

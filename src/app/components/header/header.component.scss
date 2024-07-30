@@ -34,19 +34,7 @@ header {
   align-items: center;
 }
 
-.navigation a {
-  padding: 10px;
-  text-decoration: none;
-  color: inherit;
-}
-
-.navigation a:hover {
-  outline: solid;
-  opacity: 0.75;
-  transition: opacity 0.3s;
-}
-
-.navigation li {
+.navigation p {
   display: inline-block;
   font-size: 1rem;
 }
