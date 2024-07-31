@@ -1,20 +1,31 @@
 <app-header></app-header>
 <main>
   <section class="text-container" [@fade]="isNew ? 'out' : 'in'">
-    <p *ngIf="verseText">{{ verseText }}</p>
-    <div class="translation-wrapper" *ngIf="translationText">
-      <p class="translation">
-        {{ translationText }}
-      </p>
-      <a
-        [attr.href]="verseLink"
-        target="_blank"
-        class="external-link"
-        aria-label="External link"
-      >
-        <fa-icon [icon]="faArrowUpRightFromSquare"></fa-icon>
-      </a>
-    </div>
+    <table class="text-table">
+      <tr>
+        <td class="text-cell">
+          <p *ngIf="verseText" class="verse-text">{{ verseText }}</p>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="text-cell">
+          <div class="translation-wrapper" *ngIf="translationText">
+            <p class="translation">{{ translationText }}</p>
+          </div>
+        </td>
+        <td class="external-link-container">
+          <a
+            [attr.href]="verseLink"
+            target="_blank"
+            class="external-link"
+            aria-label="External link"
+          >
+            <fa-icon [icon]="faArrowUpRightFromSquare"></fa-icon>
+          </a>
+        </td>
+      </tr>
+    </table>
   </section>
   <section class="button-container">
     <app-random-verse-button

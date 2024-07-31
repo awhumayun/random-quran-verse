@@ -7,22 +7,48 @@
   position: relative;
 }
 
-.translation-wrapper {
-  position: relative;
-  display: inline-flex;
-  align-items: flex-start;
+.text-table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
-.external-link {
-  margin-left: 1rem;
-  color: inherit;
-  text-decoration: none;
-  font-size: 1.5rem;
-  line-height: 0;
+.text-cell {
+  width: 100%;
+  padding: 0;
+  text-align: center;
+}
+
+.verse-text,
+.translation {
+  width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+}
+
+.translation-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
 }
 
 .translation {
   font-family: "Noto Sans", sans-serif;
+  flex: 1;
+  overflow-wrap: break-word;
+}
+
+.external-link-container {
+  vertical-align: top;
+  position: relative;
+  top: -15px;
+}
+
+.external-link {
+  color: inherit;
+  text-decoration: none;
+  font-size: 1.5rem;
+  line-height: 0;
+  margin-left: 1rem;
 }
 
 .button-container {
